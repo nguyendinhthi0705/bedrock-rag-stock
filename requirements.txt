@@ -11,3 +11,4 @@ pandas-datareader
 langchain-experimental
 bs4
 yfinance
+faiss-cpu
