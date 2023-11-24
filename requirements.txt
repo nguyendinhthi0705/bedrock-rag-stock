@@ -1,0 +1,13 @@
+transformers
+Pillow
+pypdf
+jq
+langchain==0.0.330
+streamlit
+botocore
+boto3
+awscli
+pandas-datareader
+langchain-experimental
+bs4
+yfinance
