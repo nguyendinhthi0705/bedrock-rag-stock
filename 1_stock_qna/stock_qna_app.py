@@ -1,5 +1,5 @@
 import streamlit as st #all streamlit commands will be available through the "st" alias
-import rag_chatbot_lib as glib #reference to local lib script
+import stock_qna_lib as glib #reference to local lib script
 
 st.set_page_config(page_title="RAG Chatbot") #HTML title
 st.title("RAG Chatbot") #page title

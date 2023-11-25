@@ -6,7 +6,9 @@ This is a simple demo of Amazon Bedrock, with AI21 and Anthropic model with lang
 
 # Setup
  Setup <a href='https://docs.aws.amazon.com/cloud9/latest/user-guide/setting-up.html' target='_blank'> Cloud9 <a><br />
- Download and install package <br />
+ Setup <a href='https://docs.python-guide.org/starting/install3/linux/' target='_blank'> Python <a><br />
+
+ Download source code and install package <br />
  > git clone https://github.com/nguyendinhthi0705/bedrock-rag-stock.git <br />
  > cd bedrock-rag-stock <br />
  > pip3 install -r requirements.txt <br />
@@ -16,7 +18,7 @@ This is a simple demo of Amazon Bedrock, with AI21 and Anthropic model with lang
 ![Architecture 01](./images/architecture01.png)
 
 ## Start App 1: qna Chatbot
- >   cd 1_stock_QnA <br />
+ >   cd 1_stock_qna <br />
  >   streamlit run stock_qna_app.py --server.port 8080
  
 #
@@ -31,5 +33,5 @@ This is a simple demo of Amazon Bedrock, with AI21 and Anthropic model with lang
 ![Architecture 02](./images/architecture03.jpg)
 ## Start App 3: Agent tools
  >   cd 3_stock_analysis <br />
- >   streamlit run 3_stock_analysis.py --server.port 8080
+ >   streamlit run stock_analysis_app.py --server.port 8080
     
