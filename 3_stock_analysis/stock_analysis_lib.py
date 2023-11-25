@@ -106,15 +106,11 @@ Question: \n\nHuman:{input} \n\nAssistant:
     company_ticker = db_chain("\n\nHuman: What is the ticker symbol for " + str(company_name) + " in stock ticker table? \n\nAssistant:")
     return company_name, company_ticker['result']
 
-def get_stock_price(ticker, history=10):
-    print (ticker)
+def get_stock_price(ticker, history=500):
     today = date.today()
     start_date = today - timedelta(days=history)
-    data = pdr.get_data_yahoo('AMZN', start=start_date, end=today)
-    dataname= ticker+'_'+str(today)
-    print('Data')
-    print(data)
-    return data, dataname
+    data = pdr.get_data_yahoo(ticker, start=start_date, end=today)
+    return data
 
 # Fetch top 5 google news for given company name
 import re
@@ -201,7 +197,7 @@ tools=[
 
 
 from langchain.agents import initialize_agent 
-def initialize():
+def initializeAgent():
     agent=initialize_agent(
     llm=get_llm(),
     agent="zero-shot-react-description",
@@ -255,7 +251,7 @@ Assistant:
     
 def interact_with_agent_st(input_query, chat_history, st_callback):
     """Interact with the agent and store chat history. Return the response."""
-    agent = initialize()
+    agent = initializeAgent()
     result = agent(
         {
             "input": input_query,
