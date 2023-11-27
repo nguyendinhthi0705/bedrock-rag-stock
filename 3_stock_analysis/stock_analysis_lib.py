@@ -248,15 +248,3 @@ Assistant:
     agent.agent.llm_chain.prompt.template=prompt
     return agent
     
-    
-def interact_with_agent_st(input_query, chat_history, st_callback):
-    """Interact with the agent and store chat history. Return the response."""
-    agent = initializeAgent()
-    result = agent(
-        {
-            "input": input_query,
-            "chat_history": chat_history,
-        },
-        callbacks=[st_callback],
-    )
-    return result

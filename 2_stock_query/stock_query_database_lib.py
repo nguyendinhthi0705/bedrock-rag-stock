@@ -1,7 +1,6 @@
 import json
 import os
 import sys
-import boto3
 import sqlite3
 from langchain.utilities import SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
