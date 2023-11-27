@@ -38,7 +38,7 @@ def get_index(): #creates and returns an in-memory vector store to be used in th
         endpoint_url=os.environ.get("BWB_ENDPOINT_URL"), #sets the endpoint URL (if necessary)
     ) #create a Titan Embeddings client
     
-    pdf_path = "2022-Shareholder-Letter.pdf" #assumes local PDF file with this name
+    pdf_path = "./2022-Shareholder-Letter.pdf" #assumes local PDF file with this name
 
     loader = PyPDFLoader(file_path=pdf_path) #load the pdf file
     

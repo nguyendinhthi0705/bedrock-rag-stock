@@ -4,23 +4,19 @@ import stock_analysis_database_lib as databaselib
 from langchain.callbacks import StreamlitCallbackHandler
 import time
 import pandas as pd
-from PIL import Image
 
 def print_result(st, response):
+    st.subheader("Daily sticker:")
+    st.dataframe(response['intermediate_steps'][1][1])
     st.subheader("Stock Chart:")
     df = pd.DataFrame(response['intermediate_steps'][1][1],columns=['Close','Volume'])
     df['Volume'] = df['Volume']/10000000
     df.rename(columns={'Close':'Price(USD)','Volume':'Volume(10 millions)'},inplace=True)
     st.line_chart(df)
-    st.subheader("Daily sticker:")
-    st.dataframe(response['intermediate_steps'][1][1])
     st.subheader("Conclusion:")
     st.write(response['output'])
 
 def stock_analysis():
-    st.set_page_config(page_title="Stock Analysis Agent", page_icon=":robot:", layout="centered") 
-    image = Image.open('Artificial-Intelligence-Stocks.jpg')
-    st.image(image, caption='')
     st.header("Stock Analysis Agent")
     st.write("Try to input with company name like Amazon, Tesla..etc")
 
@@ -44,7 +40,6 @@ def stock_analysis():
             callbacks=[st_callback])
         print_result(st,response)
 
-stock_analysis()
 
 
     
