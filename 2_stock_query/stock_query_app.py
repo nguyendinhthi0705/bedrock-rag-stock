@@ -1,7 +1,6 @@
 import streamlit as st #all streamlit commands will be available through the "st" alias
 import stock_query_lib as glib #reference to local lib script
 import stock_query_database_lib as databaselib #reference to local lib script
-from langchain.callbacks import StreamlitCallbackHandler
 
 def print_result(st, chat_response):
     st.markdown(chat_response['intermediate_steps'][1])
@@ -11,8 +10,7 @@ def print_result(st, chat_response):
         st.markdown('Result:' + chat_response['result']) 
 
 def stock_query():
-    st.set_page_config(page_title="RAG Chatbot") 
-    st.title("Stock Query Chatbot") 
+    st.title("Stock Query Agent") 
 
     if 'database' not in st.session_state: #see if the database index hasn't been created yet
         with st.spinner("Initial Database"): #show a spinner while the code in this with block runs
@@ -37,4 +35,3 @@ def stock_query():
     
         st.session_state.chat_history.append({"role":"assistant", "text":chat_response}) #append the bot's latest message to the chat history
 
-stock_query()

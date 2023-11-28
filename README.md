@@ -13,25 +13,17 @@ This is a simple demo of Amazon Bedrock, with AI21 and Anthropic model with lang
  > cd bedrock-rag-stock <br />
  > pip3 install -r requirements.txt <br />
 
-# Architect and Start App
-## App 1: Architecture
+# Architect 
+## App 1: Architecture - RAG with document
 ![Architecture 01](./images/architecture01.png)
 
-## Start App 1: qna Chatbot
- >   cd 1_stock_qna <br />
- >   streamlit run stock_qna_app.py --server.port 8080
- 
-#
-## App 2: Architecture
+
+## App 2: Architecture - Text To SQL Query 
 ![Architecture 02](./images/architecture02.png)
-## Start App 2: Text To SQL Query 
- >   cd 2_stock_query <br />
- >   streamlit run stock_query_app.py --server.port 8080
- 
-#
-## App 3: Architecture
+
+
+## App 3: Architecture - ReAct and Agents
 ![Architecture 02](./images/architecture03.jpg)
-## Start App 3: Agent tools
- >   cd 3_stock_analysis <br />
- >   streamlit run stock_analysis_app.py --server.port 8080
+# Start App:
+ >   streamlit run main.py --server.port 8080
     
