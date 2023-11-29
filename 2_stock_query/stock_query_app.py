@@ -11,6 +11,7 @@ def print_result(st, chat_response):
 
 def stock_query():
     st.title("Stock Query Agent") 
+    st.write("try: what is the stock ticker for Amazon?")
 
     if 'database' not in st.session_state: #see if the database index hasn't been created yet
         with st.spinner("Initial Database"): #show a spinner while the code in this with block runs
