@@ -2,9 +2,11 @@ import streamlit as st
 import sys
 sys.path.append("./1_stock_qna")
 sys.path.append("./2_stock_query")
-sys.path.append("./3_stock_analysis")
+sys.path.append("./3_stock_tools")
+sys.path.append("./4_stock_analysis")
 from stock_qna_app import stock_qna 
 from stock_query_app import stock_query
+from stock_tools_app import stock_tools
 from stock_analysis_app import stock_analysis
 from PIL import Image
 
@@ -18,6 +20,7 @@ st.image(image, caption='')
 
 page_names_to_funcs = {
     "Stock Analysis": stock_analysis,
+    "Stock Tools": stock_tools,
     "Stock Q&A": stock_qna, 
     "Stock Query": stock_query,
 }

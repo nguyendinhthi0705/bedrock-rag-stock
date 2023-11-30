@@ -1,24 +1,20 @@
 import streamlit as st 
-import stock_analysis_lib as glib 
-import stock_analysis_database_lib as databaselib 
+import stock_tools_lib as glib 
+import stock_tools_database_lib as databaselib 
 from langchain.callbacks import StreamlitCallbackHandler
 import time
 import pandas as pd
 
 def print_result(st, response):
-    st.subheader("Daily sticker:")
-    st.dataframe(response['intermediate_steps'][1][1])
-    st.subheader("Stock Chart:")
-    df = pd.DataFrame(response['intermediate_steps'][1][1],columns=['Close','Volume'])
-    df['Volume'] = df['Volume']/10000000
-    df.rename(columns={'Close':'Price(USD)','Volume':'Volume(10 millions)'},inplace=True)
-    st.line_chart(df)
-    st.subheader("Conclusion:")
     st.write(response['output'])
 
-def stock_analysis():
-    st.header("Stock Analysis Agent")
-    st.write("Try to input with company name like Amazon, Tesla..etc")
+def stock_tools():
+    st.header("Stock Tools Agent")
+    st.write("Try: Company nameas Amazon, Tesla, Apple..etc ")
+    st.write("get company ticker of company")
+    st.write("get stock history of company")
+    st.write("get financial statement of company")
+    st.write("fetch news of company")
 
     if 'database' not in st.session_state: 
         with st.spinner("Initial Database"): 
@@ -34,12 +30,12 @@ def stock_analysis():
         ph.empty()
         st_callback = StreamlitCallbackHandler(st.container())
         response = agent({
-            "input": input_text,
+            "input": "\n\nHuman:" + str(input_text) + " \n\nAssistant:",
             "chat_history": st.session_state.chat_history,
+            "output":"output"
          },
             callbacks=[st_callback])
-        print_result(st,response)
-
+        st.write(response['output'])
 
 
     
