@@ -4,7 +4,7 @@ import stock_qna_lib as glib
 def stock_qna():
 
     st.title("RAG Chatbot") 
-    st.write("try: what are some key inititives for the company?")
+    st.write("try: what are some key initiatives for the company?")
 
     if 'memory' not in st.session_state: 
         st.session_state.memory = glib.get_memory() #

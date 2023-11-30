@@ -18,7 +18,7 @@ def print_result(st, response):
 
 def stock_analysis():
     st.header("Stock Analysis Agent")
-    st.write("Try to input with company name like Amazon, Tesla..etc")
+    st.write("Try to input with company name like Amazon, Tesla, Apple..etc")
 
     if 'database' not in st.session_state: 
         with st.spinner("Initial Database"): 

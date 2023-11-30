@@ -10,11 +10,11 @@ def print_result(st, response):
 
 def stock_tools():
     st.header("Stock Tools Agent")
-    st.write("Try: ")
-    st.write("get company ticker of Amazon")
-    st.write("get stock history of Amazon")
-    st.write("get financial statement of Amazon")
-    st.write("fetch news of Amazon")
+    st.write("Try: Company nameas Amazon, Tesla, Apple..etc ")
+    st.write("get company ticker of company")
+    st.write("get stock history of company")
+    st.write("get financial statement of company")
+    st.write("fetch news of company")
 
     if 'database' not in st.session_state: 
         with st.spinner("Initial Database"): 
